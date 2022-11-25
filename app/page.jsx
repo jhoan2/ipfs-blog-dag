@@ -1,7 +1,16 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import { Web3Storage } from 'web3.storage'
 
 export default function Home() {
+  function getAccessToken () {
+    return process.env.WEB3STORAGE_TOKEN
+  }
+
+  function makeStorageClient () {
+    return new Web3Storage({ token: getAccessToken() })
+  }
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
